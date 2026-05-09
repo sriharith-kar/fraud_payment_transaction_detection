@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization - SecureCore</title>
+    <!-- Using standard flask url_for to ensure the path is fully robust across routes, while matching the structure you requested -->
+    <link rel="stylesheet" href="../static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">⬡</span>
+            SecureCore
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+            <li><a href="/home">Prediction</a></li>
+            <li><a href="/graphs" class="active">Visualization</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Notebooks ▼</a>
+                <div class="dropdown-content">
+                    <a href="../static/European.html">European</a>
+                    <a href="../static/Sparkov.html">Sparkov</a>
+                </div>
+            </li>
+        </ul>
+        <div class="nav-actions">
+            <a href="/" class="btn-outline">Logout</a>
+        </div>
+    </nav>
+
+    <header class="page-header"
+        style="padding-top: 10rem; padding-bottom: 4rem; text-align: center; background-color: var(--color-bg-secondary);">
+        <div class="badge">Analytics Dashboard</div>
+        <h1>Data Visualization</h1>
+        <p style="color: var(--color-text-muted); font-size: 1.2rem; max-width: 600px; margin: 1rem auto 0;">Explore the
+            performance metrics of our ensemble learning models across various sampling techniques.</p>
+    </header>
+
+    <section class="graphs-section" style="padding: 4rem 5% 8rem; background-color: var(--color-bg);">
+        <div class="tabs-container" style="max-width: 1200px;">
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="openGraphTab(event, 'EuroGraphs')">European Dataset</button>
+                <button class="tab-btn" onclick="openGraphTab(event, 'SparkGraphs')">Sparkov Dataset</button>
+            </div>
+
+            <div id="EuroGraphs" class="tab-content active" style="display: block;">
+                <!-- Oversampling -->
+                <div class="graph-category">
+                    <h2 class="category-title">1. Oversampling</h2>
+                    <div class="graph-grid">
+                        <div class="graph-card">
+                            <h3>Sample Outcomes</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download.png" alt="Sample Outcomes" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Accuracy</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (1).png" alt="Accuracy" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Precision</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (2).png" alt="Precision" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Recall</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (3).png" alt="Recall" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>F1 Score</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (4).png" alt="F1 Score" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UnderSampling -->
+                <div class="graph-category">
+                    <h2 class="category-title">2. UnderSampling</h2>
+                    <div class="graph-grid">
+                        <div class="graph-card">
+                            <h3>Accuracy</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (5).png" alt="Accuracy" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Precision</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (6).png" alt="Precision" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Recall</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (7).png" alt="Recall" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>F1 Score</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (8).png" alt="F1 Score" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smote -->
+                <div class="graph-category">
+                    <h2 class="category-title">3. Smote</h2>
+                    <div class="graph-grid">
+                        <div class="graph-card">
+                            <h3>Accuracy</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (9).png" alt="Accuracy" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Precision</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (10).png" alt="Precision" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Recall</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (11).png" alt="Recall" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>F1 Score</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/euro/download (12).png" alt="F1 Score" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="SparkGraphs" class="tab-content" style="display: none;">
+                <!-- Oversampling -->
+                <div class="graph-category">
+                    <h2 class="category-title">1. Oversampling</h2>
+                    <div class="graph-grid">
+                        <div class="graph-card">
+                            <h3>Sample Outcomes</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download.png" alt="Sample Outcomes" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Accuracy</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (1).png" alt="Accuracy" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Precision</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (2).png" alt="Precision" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Recall</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (3).png" alt="Recall" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>F1 Score</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (4).png" alt="F1 Score" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UnderSampling -->
+                <div class="graph-category">
+                    <h2 class="category-title">2. UnderSampling</h2>
+                    <div class="graph-grid">
+                        <div class="graph-card">
+                            <h3>Accuracy</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (5).png" alt="Accuracy" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Precision</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (6).png" alt="Precision" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Recall</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (7).png" alt="Recall" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>F1 Score</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (8).png" alt="F1 Score" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smote -->
+                <div class="graph-category">
+                    <h2 class="category-title">3. Smote</h2>
+                    <div class="graph-grid">
+                        <div class="graph-card">
+                            <h3>Accuracy</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (9).png" alt="Accuracy" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Precision</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (10).png" alt="Precision" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>Recall</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (11).png" alt="Recall" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                        <div class="graph-card">
+                            <h3>F1 Score</h3>
+                            <div class="img-wrapper">
+                                <img src="../static/spark/download (12).png" alt="F1 Score" class="zoomable"
+                                    onclick="openLightbox(this.src)">
+                                <div class="zoom-hint">Click to zoom</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">⬡</span>
+                SecureCore
+            </div>
+            <p>&copy; 2026 Fraud Payment Transaction Detection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openGraphTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+
+        // Lightbox functionality
+        function openLightbox(src) {
+            var lightbox = document.getElementById("lightbox");
+            var lightboxImg = document.getElementById("lightbox-img");
+            lightbox.style.display = "flex";
+            lightboxImg.src = src;
+            // Prevent body scrolling
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            var lightbox = document.getElementById("lightbox");
+            lightbox.style.display = "none";
+            // Restore body scrolling
+            document.body.style.overflow = "auto";
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navbar = document.querySelector('.navbar');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', function() {
+                    navbar.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

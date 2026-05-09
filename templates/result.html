@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result - SecureCore</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">⬡</span>
+            SecureCore
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+            <li><a href="/home">Prediction</a></li>
+            <li><a href="/graphs">Visualization</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Notebooks ▼</a>
+                <div class="dropdown-content">
+                    <a href="../static/European.html">European</a>
+                    <a href="../static/Sparkov.html">Sparkov</a>
+                </div>
+            </li>
+        </ul>
+        <div class="nav-actions">
+            <a href="/" class="btn-outline">Logout</a>
+        </div>
+    </nav>
+
+    <header class="page-header"
+        style="padding-top: 10rem; padding-bottom: 4rem; text-align: center; background-color: var(--color-bg-secondary);">
+        <div class="badge">Analysis Complete</div>
+        <h1>Prediction Result</h1>
+        <p style="color: var(--color-text-muted); font-size: 1.2rem; max-width: 600px; margin: 1rem auto 0;">The
+            ensemble learning model has processed your transaction parameters.</p>
+    </header>
+
+    <section class="result-section" style="padding: 4rem 5% 8rem; background-color: var(--color-bg);">
+        <div class="result-container" style="max-width: 1000px; margin: 0 auto;">
+
+            {% if 'LEGITIMATE' in output %}
+            <div class="result-card legitimate-result">
+                <div class="result-header">
+                    <div class="icon-wrapper legit-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <span class="status-badge legit-badge">Verified Secure</span>
+                </div>
+                <h2>{{ output }}</h2>
+                <p>This transaction matches normal behavioral patterns and exhibits low risk factors. No anomalies were
+                    detected during the ensemble analysis.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Causes</h3>
+                    <ul>
+                        <li>Location coordinates match the usual user history footprint.</li>
+                        <li>Transaction amount aligns with historical spending averages.</li>
+                        <li>Device footprint and network parameters are authenticated and trusted.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Safety Measures</h3>
+                    <ul>
+                        <li>Continue standard automated monitoring of the account.</li>
+                        <li>Keep security credentials (OTP, CVV, PIN) strictly confidential.</li>
+                        <li>Regularly review your bank statements for any anomalies.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Precautions</h3>
+                    <ul>
+                        <li>Never share your credentials over unsolicited phone calls.</li>
+                        <li>Ensure you are transacting on secured networks (avoid public Wi-Fi).</li>
+                        <li>Update your banking app and device OS regularly.</li>
+                    </ul>
+                </div>
+            </div>
+
+            {% elif 'FRAUD' in output %}
+            <div class="result-card fraud-result">
+                <div class="result-header">
+                    <div class="icon-wrapper fraud-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                            </path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <span class="status-badge fraud-badge">Critical Alert</span>
+                </div>
+                <h2>{{ output }}</h2>
+                <p>This transaction exhibits highly suspicious anomalies indicative of fraudulent activity. Immediate
+                    action is required to secure your account.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Causes</h3>
+                    <ul>
+                        <li>Unusual transaction volume or frequency detected in a short timeframe.</li>
+                        <li>Significant deviation from geographical or category spending habits.</li>
+                        <li>Mismatch in billing details or multiple rapid failed authentication attempts.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Safety Measures</h3>
+                    <ul>
+                        <li><strong style="color: var(--color-primary);">Immediately freeze/block the compromised
+                                card.</strong></li>
+                        <li>Contact your bank's fraud department to report the incident.</li>
+                        <li>Initiate a chargeback request for any unauthorized deductions.</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Precautions</h3>
+                    <ul>
+                        <li>Enable Multi-Factor Authentication (MFA) on all financial accounts.</li>
+                        <li>Setup instant push notifications for all outgoing transactions.</li>
+                        <li>Change account passwords and actively monitor your credit report.</li>
+                    </ul>
+                </div>
+            </div>
+
+            {% else %}
+            <div class="result-card legitimate-result">
+                <h2>{{ output }}</h2>
+            </div>
+            {% endif %}
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="/home" class="btn-primary btn-large">Process Another Transaction</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">⬡</span>
+                SecureCore
+            </div>
+            <p>&copy; 2026 Fraud Payment Transaction Detection. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navbar = document.querySelector('.navbar');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', function() {
+                    navbar.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

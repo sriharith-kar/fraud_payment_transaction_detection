@@ -1,0 +1,85 @@
+1. Importing the packages
+
+2. Exploring the dataset 
+	- European Fraud dataset (creditcard.csv)
+	   https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+	- Sparkov Fraud dataset (fraudTrain.csv)
+	   https://www.kaggle.com/datasets/kaushalnandania/credit-card-fraud-detection/data
+
+3. Data processing and cleaning
+	- Eliminating all Duplicated Rows
+	- Handling missing values
+	- Date/time feature extraction (for Sparkov dataset)
+	- Feature selection and reduction
+
+4. Visualization the data using seaborn and matplotlib
+	- Fraud vs legitimate transaction distribution
+
+5. Label Encoding
+	- Processing categorical Data str to int
+	- Using sklearn.preprocessing.LabelEncoder
+	- Converting merchant categories and other text features
+
+6. Feature Selection and Engineering
+	- PCA (Principal Component Analysis) for European dataset
+	- Feature extraction from datetime fields
+	- Selection of relevant features for modeling
+
+7. Handling Class Imbalance
+	- Using RandomOverSampler from imblearn (Oversampling)
+	- Using RandomUnderSampler from imblearn (Undersampling) 
+	- Using SMOTE from imblearn (Synthetic Minority Oversampling)
+	- Comparing different sampling techniques for optimal performance
+
+8. Splitting the data to train and test
+	- train_test_split from sklearn.model_selection
+	- Standard 80-20 split
+	- Maintaining data distribution
+
+9. Building and Training Multiple Models
+	- Random Forest Classifier
+	- Naive Bayes Classifier
+	- XGBoost Classifier
+	- Ensemble Method (Voting Classifier)
+	- Evaluating with accuracy, precision, recall, f1_score
+
+10. Model Comparison and Selection
+	- Creating result comparison dataframe
+	- Voting Classifier (Random Forest + Naive Bayes + XGBoost)
+	- Selecting best performing model
+
+11. Model Persistence
+	- Saving trained models
+
+
+12. Flask Framework Development
+	- Setting up Flask application
+	- SQLite database for user authentication
+	- User signup and signin functionality
+	- Input validation and security measures
+
+13. Web Interface Development
+	- HTML templates for user interaction
+	- Form inputs for feature values
+	- Prediction endpoints
+	- Result display pages
+
+14. Model Integration
+	- Loading saved models for predictions
+	- Input preprocessing for real-time prediction
+	- Handling both European and Sparkov models
+
+15. User Input Processing
+	- User gives input as Feature Values through web forms
+	- Server-side validation of input data
+	- Preprocessing input format for model compatibility
+
+16. Real-time Prediction
+	- Trained model is used for prediction
+	- Output classification (Legitimate vs Fraud)
+	- Confidence scoring and result interpretation
+
+17. Final Outcome Display
+	- Results displayed through frontend interface
+	- Clear fraud/legitimate transaction indicators
+	- User-friendly result presentation

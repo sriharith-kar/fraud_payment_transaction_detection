@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction - SecureCore</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">⬡</span>
+            SecureCore
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+            <li><a href="/home" class="active">Prediction</a></li>
+            <li><a href="/graphs">Visualization</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Notebooks ▼</a>
+                <div class="dropdown-content">
+                    <a href="../static/European.html">European</a>
+                    <a href="../static/Sparkov.html">Sparkov</a>
+                </div>
+            </li>
+        </ul>
+        <div class="nav-actions">
+            <a href="/" class="btn-outline">Logout</a>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <div class="badge">Next-Gen Security</div>
+            <h1>Identifying Fraudulent Credit Card Transactions</h1>
+            <p>Leveraging advanced ensemble learning algorithms to secure your financial ecosystem. Experience
+                precision, speed, and uncompromising protection.</p>
+            <div class="hero-buttons">
+                <a href="#prediction" class="btn-primary btn-large">Start Predicting</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="../static/images/hero.png" alt="Futuristic Security Dashboard">
+        </div>
+    </header>
+
+    <section id="prediction" class="prediction-section">
+        <div class="section-header">
+            <h2>Transaction Prediction</h2>
+            <p>Select your dataset model and enter transaction details below to evaluate the risk.</p>
+        </div>
+
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="openTab(event, 'European')">European Model</button>
+                <button class="tab-btn" onclick="openTab(event, 'Sparkov')">Sparkov Model</button>
+            </div>
+
+            <div id="European" class="tab-content active" style="display: block;">
+                <form action="/predict" method="post" class="prediction-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="v1">V1:</label>
+                            <input class="form-control" type="text" id="v1" name="0" required="required"
+                                placeholder="Enter V1">
+                        </div>
+                        <div class="form-group">
+                            <label for="v2">V2:</label>
+                            <input class="form-control" type="text" id="v2" name="1" required="required"
+                                placeholder="Enter V2">
+                        </div>
+                        <div class="form-group">
+                            <label for="v3">V3:</label>
+                            <input class="form-control" type="text" id="v3" name="2" required="required"
+                                placeholder="Enter V3">
+                        </div>
+                        <div class="form-group">
+                            <label for="v4">V4:</label>
+                            <input class="form-control" type="text" id="v4" name="3" required="required"
+                                placeholder="Enter V4">
+                        </div>
+                        <div class="form-group">
+                            <label for="v5">V5:</label>
+                            <input class="form-control" type="text" id="v5" name="4" required="required"
+                                placeholder="Enter V5">
+                        </div>
+                        <div class="form-group">
+                            <label for="v6">V6:</label>
+                            <input class="form-control" type="text" id="v6" name="5" required="required"
+                                placeholder="Enter V6">
+                        </div>
+                        <div class="form-group">
+                            <label for="v7">V7:</label>
+                            <input class="form-control" type="text" id="v7" name="6" required="required"
+                                placeholder="Enter V7">
+                        </div>
+                        <div class="form-group">
+                            <label for="v8">V8:</label>
+                            <input class="form-control" type="text" id="v8" name="7" required="required"
+                                placeholder="Enter V8">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary btn-large">Predict Transaction</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="Sparkov" class="tab-content" style="display: none;">
+                <form action="/predict1" method="post" class="prediction-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="trans-year">TRANS-YEAR:</label>
+                            <input class="form-control" type="text" id="trans-year" name="0" required="required"
+                                placeholder="e.g. 2019">
+                        </div>
+                        <div class="form-group">
+                            <label for="trans-month">TRANS-MONTH:</label>
+                            <input class="form-control" type="text" id="trans-month" name="1" required="required"
+                                placeholder="e.g. 7">
+                        </div>
+                        <div class="form-group">
+                            <label for="trans-day">TRANS-DAY:</label>
+                            <input class="form-control" type="text" id="trans-day" name="2" required="required"
+                                placeholder="e.g. 2">
+                        </div>
+                        <div class="form-group">
+                            <label for="dob-year">DOB-YEAR:</label>
+                            <input class="form-control" type="text" id="dob-year" name="3" required="required"
+                                placeholder="e.g. 1964">
+                        </div>
+                        <div class="form-group">
+                            <label for="dob-month">DOB-MONTH:</label>
+                            <input class="form-control" type="text" id="dob-month" name="4" required="required"
+                                placeholder="e.g. 11">
+                        </div>
+                        <div class="form-group">
+                            <label for="dob-day">DOB-DAY:</label>
+                            <input class="form-control" type="text" id="dob-day" name="5" required="required"
+                                placeholder="e.g. 17">
+                        </div>
+                        <div class="form-group">
+                            <label for="category">CATEGORY:</label>
+                            <div class="select-wrapper">
+                                <select class="form-control" id="category" name="6" required="required">
+                                    <option value="" disabled selected>Select Category</option>
+                                    <option value="0">Entertainment</option>
+                                    <option value="1">Food & Dining</option>
+                                    <option value="2">Gas & Transport</option>
+                                    <option value="3">Grocery (POS)</option>
+                                    <option value="4">Grocery (Net)</option>
+                                    <option value="5">Health & Fitness</option>
+                                    <option value="6">Home</option>
+                                    <option value="7">Kids & Pets</option>
+                                    <option value="8">Misc (POS)</option>
+                                    <option value="9">Misc (Net)</option>
+                                    <option value="10">Shopping (POS)</option>
+                                    <option value="11">Shopping (Net)</option>
+                                    <option value="12">Personal Care</option>
+                                    <option value="13">Travel</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">AMOUNT:</label>
+                            <input class="form-control" type="text" id="amount" name="7" required="required"
+                                placeholder="e.g. 150.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="zipcode">ZIPCODE:</label>
+                            <input class="form-control" type="text" id="zipcode" name="8" required="required"
+                                placeholder="e.g. 6441">
+                        </div>
+                        <div class="form-group">
+                            <label for="city-pop">CITY-POP:</label>
+                            <input class="form-control" type="text" id="city-pop" name="9" required="required"
+                                placeholder="e.g. 5438">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary btn-large">Predict Transaction</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="flow-section">
+        <div class="section-header">
+            <h2>How Prediction Works</h2>
+            <p>Our secure process evaluates risk in three simple steps.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <h3>Data Input</h3>
+                <p>Provide the required transactional and demographic information through our secure forms above.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <h3>Ensemble Analysis</h3>
+                <p>The selected machine learning model analyzes the input parameters against millions of past patterns.
+                </p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <h3>Instant Verdict</h3>
+                <p>Receive an immediate assessment classifying the transaction as legitimate or potentially fraudulent.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-icon">⬡</span>
+                SecureCore
+            </div>
+            <p>&copy; 2026 Fraud Payment Transaction Detection. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navbar = document.querySelector('.navbar');
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', function() {
+                    navbar.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+# Environment and cache
+.env
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+*.log
+
+# Large datasets
+Sparkov/fraudTrain.csv
+Sparkov/fraudTest.csv
+European/creditcard.csv
+
+# Large model files
+Models/model_spark.sav
+Models/model_eu.sav
+*.sav
+*.pkl
+*.joblib
+
+# Videos
+*.mp4
+
+# Large sample files
+sample_sparkov.csv
+sample_european.csv
