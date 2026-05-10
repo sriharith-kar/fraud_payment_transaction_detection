@@ -19,6 +19,24 @@ warnings.filterwarnings('ignore')
 
 app = Flask(__name__)
 
+def init_db():
+    con = sqlite3.connect('signup.db')
+    cur = con.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS info (
+            user TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            mobile TEXT NOT NULL,
+            password TEXT NOT NULL
+        )
+    """)
+    con.commit()
+    con.close()
+
+
+init_db()
+
 @app.route('/predict',methods=['POST'])
 def predict():
     int_features= [float(x) for x in request.form.values()]

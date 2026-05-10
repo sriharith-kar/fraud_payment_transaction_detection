@@ -1,0 +1,6 @@
+transaction_id,merchant_category,amount,hour,day_of_week,customer_age,distance_from_home,device_risk_score,is_fraud
+TXN-1001,grocery,24.80,10,Tuesday,34,2.4,0.08,0
+TXN-1002,fuel,61.30,18,Friday,41,6.2,0.14,0
+TXN-1003,electronics,1499.99,2,Sunday,28,780.5,0.91,1
+TXN-1004,restaurant,43.10,20,Saturday,37,4.8,0.12,0
+TXN-1005,jewelry,3200.00,3,Monday,52,1260.9,0.96,1
